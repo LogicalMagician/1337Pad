@@ -11,5 +11,7 @@ To decrypt the note you can just open it by pressing open then enter your decryp
 
 This is a good alternative to storing plaintext which may contain sensitive information you want to keep safe
 
-GUI
+No internet connection is required, download this and run it locally.
+
+GUI:
 [![1337pad.png](https://i.postimg.cc/sfTp8fBx/1337pad.png)](https://postimg.cc/xqbJN23V)
