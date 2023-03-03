@@ -17,4 +17,4 @@ Short Link: 1337Pad.com
 
 
 GUI:
-[![1337pad.png](https://i.postimg.cc/MpcWb5Bt/1337pad.png)](https://postimg.cc/VJ8QzjDb)
+[![1337pad.png](https://i.postimg.cc/FRmdKyXx/1337pad.png)](https://postimg.cc/HJZsZ7xJ)
