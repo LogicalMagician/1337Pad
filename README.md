@@ -3,7 +3,7 @@ An Encrypted Alternative to Notepad that can be run locally in any browser with 
 
 Open index.html, type or copy your note, set a strong unique password
 
-Press save once you have set a password, and then you will be able to download your note which is a file with extension .1337
+Press save once you have set a password, and then you will be able to save your note locally which is a file with extension .1337
 
 Your note will be encrypted using AES encryption while applying a random 512bit salt.
 
