@@ -14,4 +14,4 @@ This is a good alternative to storing plaintext which may contain sensitive info
 No internet connection is required, download this and run it locally.
 
 GUI:
-[![1337pad.png](https://i.postimg.cc/sfTp8fBx/1337pad.png)](https://postimg.cc/xqbJN23V)
+[1337pad.png](https://postimg.cc/VJ8QzjDb)
