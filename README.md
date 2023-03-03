@@ -1,6 +1,8 @@
 # 1337Pad
 An Encrypted Alternative to Notepad
 
+[![1337pad.png](https://i.postimg.cc/sfTp8fBx/1337pad.png)](https://postimg.cc/xqbJN23V)
+
 
 Open index.html, type or copy your note, set a strong unique password
 
