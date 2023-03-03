@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>1337Pad</title>
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<script src="jquery.min.js"></script>
+	<script src="bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h1>1337Pad</h1>
+		</div>
+		<div class="form-group">
+			<textarea class="form-control" id="notepad" style="height: 70vh;"></textarea>
+		</div>
+		<div class="form-group">
+			<label for="password">Password:</label>
+			<input type="password" class="form-control" id="password">
+		</div>
+		<button type="button" class="btn btn-primary" onclick="saveNote()">Save</button>
+		<button type="button" class="btn btn-default" onclick="loadNote()">Open</button>
+	</div>
+
+	<script type="text/javascript">
+		function saveNote() {
+			var note = document.getElementById("notepad").value;
+			var password = document.getElementById("password").value;
+			var encryptedNote = CryptoJS.AES.encrypt(note, password);
+			var file = new Blob([encryptedNote], {type: "text/plain;charset=utf-8"});
+			saveAs(file, "note.1337");
+		}
+
+		function loadNote() {
+			var fileInput = document.createElement("input");
+			fileInput.type = "file";
+			fileInput.accept = ".1337";
+			fileInput.addEventListener("change", function(event) {
+				var file = event.target.files[0];
+				var reader = new FileReader();
+				reader.onload = function() {
+					var encryptedNote = reader.result;
+					var password = prompt("Enter decryption password:");
+					try {
+						var note = CryptoJS.AES.decrypt(encryptedNote, password).toString(CryptoJS.enc.Utf8);
+						document.getElementById("notepad").value = note;
+					} catch (error) {
+						alert("Invalid password or file format");
+					}
+				}
+				reader.readAsText(file);
+			});
+			fileInput.click();
+		}
+	</script>
+	<script src="crypto-js.min.js"></script>
+	<script src="FileSaver.min.js"></script>
+</body>
+</html>
