@@ -3,14 +3,27 @@
 <head>
 	<title>1337Pad</title>
 	<link rel="stylesheet" href="bootstrap.min.css">
+	<style>
+		.password-input {
+			max-width: 200px;
+			float: left;
+			margin-right: 10px;
+		}
+		.save-open-buttons {
+			float: right;
+		}
+	</style>
 	<script src="jquery.min.js"></script>
 	<script src="bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="container">
 		<div class="form-group">
-			<button type="button" class="btn btn-primary" onclick="saveNote()">Save</button>
-			<button type="button" class="btn btn-default" onclick="loadNote()">Open</button>
+			<input type="password" class="form-control password-input" id="password" placeholder="Password">
+			<div class="save-open-buttons">
+				<button type="button" class="btn btn-primary" onclick="saveNote()">Save</button>
+				<button type="button" class="btn btn-default" onclick="loadNote()">Open</button>
+			</div>
 		</div>
 		<div class="form-group">
 			<label for="title">Title:</label>
@@ -21,10 +34,6 @@
 		</div>
 		<div class="form-group">
 			<textarea class="form-control" id="notepad" style="height: 70vh;"></textarea>
-		</div>
-		<div class="form-group">
-			<label for="password">Password:</label>
-			<input type="password" class="form-control" id="password">
 		</div>
 	</div>
 
