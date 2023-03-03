@@ -8,6 +8,14 @@
 </head>
 <body>
 	<div class="container">
+		<div class="form-group">
+			<button type="button" class="btn btn-primary" onclick="saveNote()">Save</button>
+			<button type="button" class="btn btn-default" onclick="loadNote()">Open</button>
+		</div>
+		<div class="form-group">
+			<label for="title">Title:</label>
+			<input type="text" class="form-control" id="title">
+		</div>
 		<div class="page-header">
 			<h1>1337Pad</h1>
 		</div>
@@ -18,17 +26,16 @@
 			<label for="password">Password:</label>
 			<input type="password" class="form-control" id="password">
 		</div>
-		<button type="button" class="btn btn-primary" onclick="saveNote()">Save</button>
-		<button type="button" class="btn btn-default" onclick="loadNote()">Open</button>
 	</div>
 
 	<script type="text/javascript">
 		function saveNote() {
+			var title = document.getElementById("title").value;
 			var note = document.getElementById("notepad").value;
 			var password = document.getElementById("password").value;
 			var encryptedNote = CryptoJS.AES.encrypt(note, password);
 			var file = new Blob([encryptedNote], {type: "text/plain;charset=utf-8"});
-			saveAs(file, "note.1337");
+			saveAs(file, title + ".1337");
 		}
 
 		function loadNote() {
