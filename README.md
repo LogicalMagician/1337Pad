@@ -1,5 +1,5 @@
 # 1337Pad
-An Encrypted Alternative to Notepad
+An Encrypted Alternative to Notepad that can be run locally in any browser with no internet connection
 
 Open index.html, type or copy your note, set a strong unique password
 
@@ -11,7 +11,6 @@ To decrypt the note you can open it by pressing open then enter your decryption 
 
 This is a good alternative to storing plaintext which may contain sensitive information you want to keep safe
 
-No internet connection is required, download this and run it locally.
 
 GUI:
 [![1337pad.png](https://i.postimg.cc/MpcWb5Bt/1337pad.png)](https://postimg.cc/VJ8QzjDb)
