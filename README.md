@@ -11,10 +11,7 @@ To decrypt the note you can open it by pressing open then select your .1337 note
 
 This is a good alternative to storing plaintext which may contain sensitive information you want to keep safe
 
-IPFS: ipfs://Qmb1tdTJMo7uQ9UCmGes5gTDeYXhU11jbNBW1V6f9Cbain
+IPFS: ipfs://QmWTXLLPDDDoC6LXQzWEdPvGD3oa2fw3vYc4Y9yHvUNCLe
 
 Short Link: 1337Pad.com
 
-
-GUI:
-[![1337pad.png](https://i.postimg.cc/FRmdKyXx/1337pad.png)](https://postimg.cc/HJZsZ7xJ)
