@@ -15,3 +15,5 @@ IPFS: ipfs://QmWTXLLPDDDoC6LXQzWEdPvGD3oa2fw3vYc4Y9yHvUNCLe
 
 Short Link: 1337Pad.com
 
+
+Use a strong, unique password and do not store the password anywhere
