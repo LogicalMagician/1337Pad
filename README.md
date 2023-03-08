@@ -11,6 +11,6 @@ To decrypt the note you can open it by pressing open then select your .1337 note
 
 Instead of using Notepad to store your notes in plaintext, use encryption to keep your notes secure from hackers.
 
-IPFS: ipfs://QmWTXLLPDDDoC6LXQzWEdPvGD3oa2fw3vYc4Y9yHvUNCLe
+IPFS: ipfs://QmbH4rQ8ZVSbz6FYmQNz9mpJD3PKqchemxewKeTfPMmL3z
 
 Short Link: 1337Pad.com
