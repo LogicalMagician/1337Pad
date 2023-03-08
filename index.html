@@ -84,7 +84,9 @@
 
    <script type="text/javascript">
     function generateSalt(length) {
-      var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' +
+           'абвгдежзийклмнопрстуфхцчшщъыьэюя' + // Cyrillic alphabet
+           '!@#$%^&*()_+-=[]{}|;:,.<>?'; // special characters
       var salt = '';
       for (var i = 0; i < length; i++) {
         salt += chars.charAt(Math.floor(Math.random() * chars.length));
