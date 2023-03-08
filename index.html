@@ -82,13 +82,23 @@
     </div>
   </footer>
 
-  <script type="text/javascript">
+   <script type="text/javascript">
+    function generateSalt(length) {
+      var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      var salt = '';
+      for (var i = 0; i < length; i++) {
+        salt += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return salt;
+    }
+
     function saveNote() {
       var title = document.getElementById("title").value;
       var note = document.getElementById("notepad").value;
       var password = document.getElementById("password").value;
-      var encryptedNote = CryptoJS.AES.encrypt(note, password);
-      var file = new Blob([encryptedNote], {type: "text/plain;charset=utf-8"});
+      var salt = generateSalt(16);
+      var encryptedNote = CryptoJS.AES.encrypt(note, password + salt);
+      var file = new Blob([salt + encryptedNote], {type: "text/plain;charset=utf-8"});
       saveAs(file, title + ".1337");
     }
 
@@ -100,10 +110,12 @@
         var file = event.target.files[0];
         var reader = new FileReader();
         reader.onload = function() {
-          var encryptedNote = reader.result;
+          var content = reader.result;
+          var salt = content.substring(0, 16);
+          var encryptedNote = content.substring(16);
           var password = prompt("Enter decryption password:");
           try {
-            var note = CryptoJS.AES.decrypt(encryptedNote, password).toString(CryptoJS.enc.Utf8);
+            var note = CryptoJS.AES.decrypt(encryptedNote, password + salt).toString(CryptoJS.enc.Utf8);
             var title = file.name.split(".")[0];
             document.getElementById("title").value = title;
             document.getElementById("notepad").value = note;
