@@ -5,7 +5,7 @@ Open index.html, type or copy your note, set a strong unique password
 
 Press save once you have set a password, and then you will be able to save your note locally which is a file with extension .1337
 
-Your note will be encrypted using AES encryption while applying a random 512bit salt.
+Your note will be encrypted using AES encryption while applying a salt.
 
 To decrypt the note you can open it by pressing open then select your .1337 note file and it will prompt you to enter your decryption password to decrypt the note.
 
