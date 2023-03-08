@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>1337Pass</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<style>
+		body {
+			background-color: white;
+			color: black;
+			font-family: "Courier New", Courier, monospace;
+			font-size: 18px;
+			margin: 0;
+			padding: 0;
+		}
+		.page-header {
+			text-align: center;
+			font-size: 48px;
+			margin-top: 50px;
+		}
+		.password-input {
+			float: left;
+			margin-right: 10px;
+			width: calc(100% - 270px);
+			max-width: 400px;
+		}
+		.save-open-buttons {
+			float: right;
+			margin-top: 10px;
+		}
+		footer {
+			background-color: #333;
+			color: #fff;
+			padding: 10px 0;
+		}
+		footer p {
+			margin: 0;
+			text-align: center;
+		}
+		footer a {
+			color: #fff;
+			text-decoration: none;
+		}
+		footer a:hover {
+			text-decoration: underline;
+		}
+		body.night-mode {
+			background-color: black;
+			color: #00ff00;
+		}
+	</style>
+	<script src="assets/jquery.min.js"></script>
+	<script src="assets/bootstrap.min.js"></script>
+	<script src="assets/crypto-js.min.js"></script>
+	<script src="assets/FileSaver.min.js"></script>
+	<script>
+		function generatePassword() {
+			// Get the length and complexity from the form
+			var length = document.getElementById("length").value;
+			var complexity = document.getElementById("complexity").value;
+
+			// Define the characters for each complexity level
+			var easyChars = "abcdefghijklmnopqrstuvwxyz";
+			var mediumChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+			var hardChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+{}[];:<>,.?/|~`";
+
+			// Choose the character set based on the selected complexity
+			var chars = "";
+			if (complexity === "easy") {
+				chars = easyChars;
+			} else if (complexity === "medium") {
+				chars = mediumChars;
+			} else {
+				chars = hardChars;
+			}
+
+			// Generate a random password using the selected character set and length
+			var password = "";
+			for (var i = 0; i < length; i++) {
+				password += chars.charAt(Math.floor(Math.random() * chars.length));
+			}
+
+			// Display the generated password
+			document.getElementById("password").value = password;
+		}
+	</script>
+</head>
+<body class="night-mode">
+	<div class="container">
+		<div class="page-header">
+			1337Pass
+		</div>
+		<div class="form-group">
+			<label for="length">Length:</label>
+			<input type="number" class="form-control" id="length" name="length" min="8" max="64" value="16">
+		</div>
+		<div class="form-group">
+			<label for="complexity">Complexity:</label>
+			<select class="form-control" id="complexity" name="complexity">
+				<option value="easy">Easy</option>
+				<option value="medium">Medium</option>
+<option value="hard">Hard</option>
+</select>
+</div>
+<div class="form-group">
+<input type="text" class="form-control password-input" id="password" placeholder="Generated Password">
+<button type="button" class="btn btn-primary" onclick="generatePassword()">Generate</button>
+<div style="clear:both;"></div>
+</div>
+</div>
+<footer>
+<div class="container">
+<p>1337Pass - <a href="index.html">1337Pad</a> - <a href="https://github.com/LogicalMagician/1337Pad">Source Code</a></p>
+</div>
+</footer>
+
+</body>
+</html>
