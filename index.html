@@ -64,35 +64,57 @@
     </div>
     <div class="form-group">
       <textarea class="form-control" id="notepad" style="height: 70vh;"></textarea>
-    </div>
-    <div class="form-group">
-      <input type="password" class="form-control password-input" id="password" placeholder="Password">
-      <div class="save-open-buttons">
-        <button type="button" class="btn btn-primary" onclick="saveNote()">Save</button>
-        <button type="button" class="btn btn-default" onclick="loadNote()">Open</button>
-        <button type="button" class="btn btn-default" onclick="toggleMode()">Day/Night Mode</button>
-      </div>
-      <div style="clear:both;"></div>
-    </div>
+<div class="form-group">
+  <label for="mouse-movement-progress">Move your mouse randomly to add increased entropy to encryption process</label>
+  <progress id="mouse-movement-progress" max="500" value="0"></progress>
+</div>
+<div class="form-group">
+  <input type="password" class="form-control password-input" id="password" placeholder="Password">
+  <div class="save-open-buttons">
+    <button type="button" class="btn btn-primary" onclick="saveNote()">Save</button>
+    <button type="button" class="btn btn-default" onclick="loadNote()">Open</button>
+    <button type="button" class="btn btn-default" onclick="toggleMode()">Day/Night Mode</button>
+  </div>
+  <div style="clear:both;"></div>
+</div>
   </div>
   <footer>
     <div class="container">
-      <p>1337Pad - <a href="https://github.com/LogicalMagician/1337Pad">GitHub Repository</a></p>
+      <p>1337Pad - <a href="1337pass.html">1337Pass</a> - <a href="https://github.com/LogicalMagician/1337Pad">Source Code</a></p>
       <p>No Internet Connection Required! All encryption/decryption is done client-side in your browser</p>
     </div>
   </footer>
 
    <script type="text/javascript">
-    function generateSalt(length) {
-var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' +
-           'абвгдежзийклмнопрстуфхцчшщъыьэюя' + // Cyrillic alphabet
-           '!@#$%^&*()_+-=[]{}|;:,.<>?'; // special characters
-      var salt = '';
-      for (var i = 0; i < length; i++) {
-        salt += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      return salt;
+let mouseMovements = [];
+
+document.addEventListener('mousemove', (e) => {
+  if (mouseMovements.length < 500) {
+    mouseMovements.push({ x: e.clientX, y: e.clientY });
+    document.getElementById('mouse-movement-progress').value = mouseMovements.length;
+  }
+});
+
+function generateSalt(length) {
+  var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' +
+    'Ð°Ð±Ð²Ð³Ð´ÐµÐ¶Ð·Ð¸Ð¹ÐºÐ»Ð¼Ð½Ð¾Ð¿Ñ€ÑÑ‚ÑƒÑ„Ñ…Ñ†Ñ‡ÑˆÑ‰ÑŠÑ‹ÑŒÑÑŽÑ' +
+    '!@#$%^&*()_+-=[]{}|;:,.<>?';
+  var salt = '';
+  for (var i = 0; i < length; i++) {
+    var index;
+    if (mouseMovements.length > 0) {
+      index = Math.floor(Math.random() * mouseMovements.length);
+      const movement = mouseMovements[index];
+      index = Math.abs(movement.x + movement.y) % chars.length;
+      mouseMovements.splice(index, 1);
+    } else {
+      index = Math.floor(Math.random() * chars.length);
     }
+    salt += chars.charAt(index);
+  }
+  return salt;
+}
+
 
     function saveNote() {
       var title = document.getElementById("title").value;
