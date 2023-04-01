@@ -6,4 +6,4 @@ To decrypt the note, press the "Open" button, select the relevant note, and ente
 
 For generating robust, random passwords, you can utilize the 1337pass.html tool or simply use your own. It's highly recommended to always use a strong password.
 
-Access 1337Pad via IPFS at ipfs://QmXLDYvtMFFRyoaybhqvgnMs3jt6GqPNPqZRJvQFdL4TpU or via the short link 1337Pad.com.
+Access 1337Pad via IPFS at ipfs://QmfVDUz1R94zpDnVgrSgLnX8hCD59cnpDjAi3ik52dvhUA or via the short link 1337Pad.com.
